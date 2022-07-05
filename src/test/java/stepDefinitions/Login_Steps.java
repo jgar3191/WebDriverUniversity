@@ -63,4 +63,11 @@ public class Login_Steps {
         driver.switchTo().alert().accept();
     }
 
+    @Then("I should be presented with the following login validation message {}")
+    public void i_should_be_presented_with_the_following_login_validation_message(String expectedMessage) {
+        String alertMessage = driver.switchTo().alert().getText();
+        Assert.assertEquals(alertMessage, expectedMessage);
+        driver.switchTo().alert().accept();
+    }
+
 }
