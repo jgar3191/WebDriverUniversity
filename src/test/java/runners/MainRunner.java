@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"stepDefinitions"},
         monochrome = true,
         dryRun = false,
-        tags = "@scenario-outline",
+        tags = "@regression",
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json"}
 )
 public class MainRunner extends AbstractTestNGCucumberTests {
