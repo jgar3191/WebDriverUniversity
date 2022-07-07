@@ -7,6 +7,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 public class DriverFactory {
     private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
@@ -19,7 +23,7 @@ public class DriverFactory {
 
     private static WebDriver createDriver(){
         WebDriver driver = null;
-        String browserType = "chrome";
+        String browserType = getBrowserType();
 
         switch (browserType){
             case "chrome" -> {
@@ -40,6 +44,21 @@ public class DriverFactory {
         }
         driver.manage().window().maximize();
         return driver;
+    }
+
+    private static String getBrowserType() {
+        String browserType = null;
+
+        try {
+            Properties properties = new Properties();
+            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/configuration.properties");
+            properties.load(file);
+            browserType = properties.getProperty("browser").toLowerCase().trim();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return browserType;
     }
 
     public static void cleanUpDriver(){
