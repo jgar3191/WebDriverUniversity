@@ -1,3 +1,5 @@
 pageObjects\Login_PO.class
 driver\DriverFactory.class
 pageObjects\Base_PO.class
+pageObjects\ContactUs_PO.class
+utils\Global_Vars.class

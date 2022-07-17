@@ -17,7 +17,7 @@ Feature: WebDriver University - Login Page
     And I click on the login button
     Then I should be presented with an unsuccessful login alert message
 
-  @scenario-outline
+  @scenario-outline @smoke @ignore
   Scenario Outline: Validate - Successful & Unsuccessful Login
     When I enter a username <username>
     And I enter a password <password>
@@ -29,4 +29,3 @@ Feature: WebDriver University - Login Page
       | webdriver | webdriver123 | validation succeeded   |
       | webdriver | webdriver1   | validation failed      |
       | joe_blogs | password3    | validation failed      |
-

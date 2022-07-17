@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
         glue = {"stepDefinitions"},
         monochrome = true,
         dryRun = false,
-        tags = "@contact-us",
+        tags = "",
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json"}
 )
 public class MainRunner extends AbstractTestNGCucumberTests {
